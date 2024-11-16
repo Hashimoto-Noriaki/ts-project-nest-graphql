@@ -58,4 +58,9 @@ npx prisma generate
 npx prisma migrate dev --name init
 ```
 
+### psqlコマンド
+```
+docker exec -it ts-project-nest-next-graphql-hasura psql -U nori_user noridb 
+```
+
 ### テーブルの確認のた
