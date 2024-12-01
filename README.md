@@ -6,7 +6,7 @@
 
 ### Nest.jsの概念
 
-https://qiita.com/Hashimoto-Noriaki/items/d71f972c06563ad60d53
+https://zenn.dev/norihashimo/articles/de0edfde59edf2
 
 ### 公式ドキュメント
 
