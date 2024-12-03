@@ -7,7 +7,7 @@ export class Article {
   id: number;
 
   @Field()
-  Title: string;
+  title: string;
 
   @Field()
   url: string;
