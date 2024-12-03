@@ -9,6 +9,15 @@
 
 https://zenn.dev/norihashimo/articles/de0edfde59edf2
 
+- service
+```
+nest g service article --no-spec
+```
+- resolver
+```
+nest g resolver article --no-spec
+```
+
 ### 公式ドキュメント
 
 https://docs.nestjs.com/
