@@ -4,18 +4,34 @@ import { Article } from './models/article.model';
 @Injectable()
 export class ArticleService {
   articles: Article[] = [];
+
+  // 新しい記事を作成するメソッド
+  createArticle(
+    title: string,
+    url: string,
+    description?: string,
+    tags?: string[],
+  ): Article {
+    const newArticle = new Article();
+
+    // 新しい記事のIDを自動的に付与
+    newArticle.id = this.articles.length + 1;
+    newArticle.title = title;
+    newArticle.url = url;
+    newArticle.description = description || '';
+    newArticle.tags = tags || [];
+    newArticle.createdAt = new Date();
+    newArticle.updatedAt = new Date();
+    newArticle.deletedAt = null;
+
+    // 作成した記事をarticles配列に追加
+    this.articles.push(newArticle);
+
+    return newArticle;
+  }
+
+  // 記事一覧を取得するメソッド
   getArticles(): Article[] {
-    const article1 = new Article();
-    article1.id = 1;
-    article1.title = '記事1';
-    article1.url =
-      'https://qiita.com/Hashimoto-Noriaki/items/791de3398c8f1346f1c7';
-    article1.description = '技術選定';
-    article1.tags = ['NestJS', 'GraphQL', 'TypeScript'];
-    article1.createdAt = new Date();
-    article1.updatedAt = new Date();
-    article1.deletedAt = null;
-    this.articles.push(article1);
     return this.articles;
   }
 }

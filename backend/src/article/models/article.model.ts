@@ -28,6 +28,6 @@ export class Article {
   @Field()
   updatedAt: Date;
 
-  @Field()
-  deletedAt: Date;
+  @Field({ nullable: true })
+  deletedAt?: Date | null;
 }
