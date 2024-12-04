@@ -1,8 +1,11 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // 全リクエストに対してバリデーションを適用
+  app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
     origin: '*', //Next.jsからGraphQLサーバーにアクセスできるようにする
   });
