@@ -4,7 +4,6 @@
 - ```Prisma```
 
 
-
 ### Nest.jsの概念
 
 https://zenn.dev/norihashimo/articles/de0edfde59edf2
@@ -60,6 +59,11 @@ npx prettier --write .
 
 ```
 npx prisma generate
+```
+
+### prisma studio
+```
+npx prisma studio
 ```
 
 ### マイグレーション作成
