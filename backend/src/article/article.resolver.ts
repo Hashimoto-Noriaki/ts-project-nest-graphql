@@ -8,16 +8,17 @@ export class ArticleResolver {
   constructor(private readonly articleService: ArticleService) {}
 
   @Query(() => [Article], { nullable: 'items' })
-  getArticles(): Article[] {
+  async getArticles(): Promise<Article[]> {
+    // 非同期メソッドに変更しPromise型を使用
     return this.articleService.getArticles();
   }
 
   // createArticle Mutation を定義
   @Mutation(() => Article)
-  createArticle(
+  async createArticle(
     @Args('createArticleInput') createArticleInput: CreateArticleInput, // 入力データ
-  ): Article {
-    const { title, url, description, tags } = createArticleInput; // 入力データを分解
-    return this.articleService.createArticle(title, url, description, tags); // 各引数に渡す
+  ): Promise<Article> {
+    // 非同期メソッドに変更しPromise型を使用
+    return this.articleService.createArticle(createArticleInput); // CreateArticleInput型のオブジェクトを渡す
   }
 }
