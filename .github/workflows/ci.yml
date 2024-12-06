@@ -19,9 +19,9 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: nori_user
-          POSTGRES_PASSWORD: nori_pass
-          POSTGRES_DB: noridb
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         options: >-
           --health-cmd "pg_isready -U postgres"
           --health-interval 10s
@@ -44,7 +44,7 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "DATABASE_URL=postgresql://nori_user:nori_pass@localhost:5432/noridb" > .env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > backend/.env
 
       - name: Run Prisma Migrations
         run: |
